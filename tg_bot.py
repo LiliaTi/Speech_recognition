@@ -24,6 +24,7 @@ def tg_smart_answer(update, context):
 
 
 def main():
+    logger.info("Start TG bot")
     tg_bot_token = os.environ.get('TG_BOT_TOKEN')
     tg_error_chat_id = os.environ.get('TG_ERROR_CHAT_ID')
 
