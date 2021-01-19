@@ -1,5 +1,5 @@
 import os
-import dialogflow_v2
+import dialogflow
 import json
 
 
