@@ -1,0 +1,4 @@
+python-telegram-bot==13.1
+telegram==0.0.1
+vk-api==11.9.1
+dialogflow==1.1.0
