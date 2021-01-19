@@ -1,4 +1,4 @@
-import dialogflow
+import dialogflow2
 
 
 def smart_answer(project_id, session_id, text, language_code):
