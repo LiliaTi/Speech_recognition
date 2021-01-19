@@ -1,9 +1,4 @@
 
 dialogflow==1.1.0
-future==0.18.2
-google-api-core==1.24.1
-google-auth==1.24.0
-google-cloud-dialogflow==2.0.0
-googleapis-common-protos==1.52.0
 python-telegram-bot==13.1
 vk-api==11.9.1
