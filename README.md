@@ -6,6 +6,13 @@
 
 Отправьте вопрос ([доступные вопросы](https://github.com/LiliaTi/Speech_recognition/blob/main/questions.json)) [телеграм боту](https://telegram.me/devman_tech_support_bot) или [группе vk](https://vk.com/im?media=&sel=-201843313)
 
+## Пример использования
+
+Telegram
+[![tg_bot_gif.gif](https://s2.gifyu.com/images/tg_bot_gif.gif)](https://gifyu.com/image/UpoL)
+
+VK
+![](vk_bot_gif.gif)
 
 ## Как установить
 
