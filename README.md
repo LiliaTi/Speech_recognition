@@ -9,10 +9,10 @@
 ## Пример использования
 
 Telegram
-![](C:\Images\tg_bot_gif.gif)
+![Alt](C:\Images\tg_bot_gif.gif)
 
 VK
-![](C:\Images\vk_bot_gif.gif)
+![Alt](C:\Images\vk_bot_gif.gif)
 
 ## Как установить
 
