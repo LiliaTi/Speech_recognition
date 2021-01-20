@@ -9,9 +9,10 @@
 ## Пример использования
 
 Telegram
-<img src="file:///C:/Images/tg_bot_gif.gif" />
+![](tg_bot_gif.gif)
+
 VK
-<img src="file:///C:/Images/vk_bot_gif.gif" />
+![](vk_bot_gif.gif)
 
 ## Как установить
 
