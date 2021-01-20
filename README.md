@@ -9,10 +9,9 @@
 ## Пример использования
 
 Telegram
-![Alt](C:\Images\tg_bot_gif.gif)
-
+<img src="file:///C:/Images/tg_bot_gif.gif" />
 VK
-![Alt](C:\Images\vk_bot_gif.gif)
+<img src="file:///C:/Images/vk_bot_gif.gif" />
 
 ## Как установить
 
