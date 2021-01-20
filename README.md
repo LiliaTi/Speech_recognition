@@ -9,9 +9,12 @@
 ## Пример использования
 
 Telegram
+
 [![tg_bot_gif.gif](https://s2.gifyu.com/images/tg_bot_gif.gif)](https://gifyu.com/image/UpoL)
 
+
 VK
+
 [![vk_bot_gif.gif](https://s2.gifyu.com/images/vk_bot_gif.gif)](https://gifyu.com/image/UpoR)
 
 ## Как установить
