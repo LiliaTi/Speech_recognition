@@ -3,6 +3,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import os
 import logging
 from dialogflow_functions import smart_answer
+from MyLogsHandler import MyLogsHandler
 
 
 LANGUAGE_CODE = "ru"
@@ -23,31 +24,29 @@ def tg_smart_answer(update, context):
     context.bot.send_message(chat_id=chat_id, text=answer.fulfillment_text)
 
 
+def error(update, context):
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
+
 def main():
     logger.info("Start TG bot")
     tg_bot_token = os.environ.get('TG_BOT_TOKEN')
     tg_error_chat_id = os.environ.get('TG_ERROR_CHAT_ID')
 
     bot = Bot(tg_bot_token)
-    class MyLogsHandler(logging.Handler):
-
-        def emit(self, record):
-            log_entry = self.format(record)
-            bot.sendMessage(tg_error_chat_id, log_entry)
 
     logging.basicConfig(format="%(process)d %(levelname)s %(message)s")
     logger.setLevel(logging.INFO)
-    logger.addHandler(MyLogsHandler())
+    logger.addHandler(MyLogsHandler(tg_error_chat_id, bot))
 
-    try:
-        updater = Updater(tg_bot_token, use_context=True)
-        dispatcher = updater.dispatcher
+    updater = Updater(tg_bot_token, use_context=True)
+    dispatcher = updater.dispatcher
 
-        dispatcher.add_handler(CommandHandler("start", start))
-        dispatcher.add_handler(MessageHandler(
-            Filters.text & ~Filters.command, tg_smart_answer))
-    except Exception as e:
-        logger.exception(e)
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(MessageHandler(
+        Filters.text & ~Filters.command, tg_smart_answer))
+
+    dispatcher.add_error_handler(error)
 
     updater.start_polling()
     updater.idle()
