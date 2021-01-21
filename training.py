@@ -5,7 +5,7 @@ import json
 
 GOOGLE_APPLICATION_CREDENTIALS = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 
-project_id = os.environ.get('PROJECT_ID')
+
 
 
 def create_dialogflow_intent(project_id, intent):
@@ -23,20 +23,20 @@ def train_dialogflow_agent(project_id):
 
 
 def main():
+    project_id = os.environ.get('PROJECT_ID')
     with open('questions.json', 'r', encoding='utf-8') as my_file:
         questions = json.load(my_file)
 
     intents = []
-    for key in questions.keys():
+    for key, value in questions.items():
         training_phrases = []
-        question = questions[key]
-        for phrase in question['questions']:
+        for phrase in value['questions']:
             training_phrases.append({"parts": [{"text": phrase}]})
         intent = {
             "display_name": key,
             "messages": [{
                 "text":
-                {"text": [question['answer']]}
+                {"text": [value['answer']]}
             }],
             "training_phrases": training_phrases
         }
