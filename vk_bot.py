@@ -5,6 +5,7 @@ import random
 from dialogflow_functions import smart_answer
 from telegram import Bot
 import logging
+from MyLogsHandler import MyLogsHandler
 
 
 LANGUAGE_CODE = "ru"
@@ -36,15 +37,9 @@ if __name__ == "__main__":
     tg_error_chat_id = os.environ.get('TG_ERROR_CHAT_ID')
     bot = Bot(tg_bot_token)
 
-    class MyLogsHandler(logging.Handler):
-
-        def emit(self, record):
-            log_entry = self.format(record)
-            bot.sendMessage(tg_error_chat_id, log_entry)
-
     logging.basicConfig(format="%(process)d %(levelname)s %(message)s")
     logger.setLevel(logging.INFO)
-    logger.addHandler(MyLogsHandler())
+    logger.addHandler(MyLogsHandler(tg_error_chat_id, bot))
 
     longpoll = VkLongPoll(vk_session)
     for event in longpoll.listen():
