@@ -43,9 +43,7 @@ if __name__ == "__main__":
 
     longpoll = VkLongPoll(vk_session)
     for event in longpoll.listen():
-        try:
-            if event.type == VkEventType.MESSAGE_NEW and event.to_me:
-                vk_smart_answer(event, vk_api, project_id)
-        except Exception as e:
-            logger.exception(e)
+        if event.type == VkEventType.MESSAGE_NEW and event.to_me:
+            vk_smart_answer(event, vk_api, project_id)
+        
 
