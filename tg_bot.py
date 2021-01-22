@@ -24,7 +24,7 @@ def tg_smart_answer(update, context):
     context.bot.send_message(chat_id=chat_id, text=answer.fulfillment_text)
 
 
-def error(update, context):
+def error_handler(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 
@@ -46,7 +46,7 @@ def main():
     dispatcher.add_handler(MessageHandler(
         Filters.text & ~Filters.command, tg_smart_answer))
 
-    dispatcher.add_error_handler(error)
+    dispatcher.add_error_handler(error_handler)
 
     updater.start_polling()
     updater.idle()
